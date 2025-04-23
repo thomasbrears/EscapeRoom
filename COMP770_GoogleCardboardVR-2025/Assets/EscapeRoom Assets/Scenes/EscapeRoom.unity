@@ -15734,7 +15734,7 @@ GameObject:
   - component: {fileID: 1016568656}
   - component: {fileID: 1016568655}
   - component: {fileID: 1016568654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: '[BuildingBlock] Cube'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30576,7 +30576,7 @@ GameObject:
   - component: {fileID: 1865779794}
   - component: {fileID: 1865779793}
   - component: {fileID: 1865779792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: '[BuildingBlock] HandGrab'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
