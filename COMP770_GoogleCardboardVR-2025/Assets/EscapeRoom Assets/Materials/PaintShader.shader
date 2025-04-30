@@ -1,4 +1,4 @@
-Shader "Custom/CarpetShader"
+Shader "Custom/PaintShader"
 {
     Properties
     {
