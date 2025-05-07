@@ -4,6 +4,7 @@ Shader "Custom/PaintShader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Tiling ("Tiling", Float) = 1.0
+        _EmissionStrength ("Emission Strength", Float) = 0.05
     }
     SubShader
     {
@@ -15,6 +16,7 @@ Shader "Custom/PaintShader"
 
         sampler2D _MainTex;
         float _Tiling;
+        float _EmissionStrength;
 
         struct Input
         {
@@ -26,10 +28,8 @@ Shader "Custom/PaintShader"
         {
             float3 coords = IN.worldPos * _Tiling;
             float3 n = abs(IN.worldNormal);
-
             float4 texColor;
 
-            // Choose the dominant axis for projection
             if (n.x > n.y && n.x > n.z)
                 texColor = tex2D(_MainTex, coords.zy); // X projection
             else if (n.y > n.z)
@@ -38,6 +38,9 @@ Shader "Custom/PaintShader"
                 texColor = tex2D(_MainTex, coords.xy); // Z projection
 
             o.Albedo = texColor.rgb;
+
+            // Add slight emission for low-light visibility
+            o.Emission = texColor.rgb * _EmissionStrength;
         }
         ENDCG
     }
